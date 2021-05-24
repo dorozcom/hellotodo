@@ -10,6 +10,6 @@ Runs on Docker & Go
 
 To build:
 $ docker build -t hellotodo .
-$ docker run --publish 6060:8080 --name test --rm hellotodo
+$ docker run --publish 6060:8080 --name hellotodolocal --rm hellotodo
 
 Browse 127.0.0.1:6060
