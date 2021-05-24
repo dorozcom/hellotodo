@@ -33,8 +33,8 @@ function createNew(clicked_b) { //adds a new item to the list
     var node = document.createElement("LI");
     let div = document.createElement('div');
   
+    div.innerHTML = '<button id="priority_'+tempId+'" '+'class="priority" onclick="colorChange(this.id)" style="background-color:rgb(15,157,88)"></button><label class="input-sizer"><input id="priority_input_'+tempId+' type="text" onInput="this.parentNode.dataset.value = this.value" size="40" placeholder="New item..."></label><button id="priority_'+(tempId*10)+'" '+'class="remove" onclick="remove('+tempId*50+')">X</button>';
   
-    div.innerHTML = '<button id="priority_'+tempId+'" '+'class="priority" onclick="colorChange(this.id)" style="background-color:rgb(15,157,88)"></button><input id="priority_input_'+tempId+' type="text" style="width:500px" placeholder="New item..."><button id="priority_'+(tempId*10)+'" '+'class="remove" onclick="remove('+tempId*50+')">X</button>';
     node.appendChild(div);
     node.setAttribute('id',String(tempId*50));
 
