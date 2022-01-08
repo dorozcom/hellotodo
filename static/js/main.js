@@ -65,17 +65,6 @@ function colorChange(clicked_b) { //changes the color for the priorities
         document.getElementById(clicked_b).style.backgroundColor = "rgb(15, 157, 88)"; //green
     }
 
-    //function getStyle(el, styleProp) //gets the current background color for the priority so we know which one is next
-    //{
-    //  if (el.currentStyle)
-    //    return el.currentStyle[styleProp];
-
-    //return document.defaultView.getComputedStyle(el, null)[styleProp];
-    //}
-
-
-
-
 }
 
 function remove(clicked_b) {
