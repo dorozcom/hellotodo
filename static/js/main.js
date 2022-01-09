@@ -79,13 +79,28 @@ function markdone(clicked_b) {
     var div_child = el.firstChild;
     var label_child = div_child.getElementsByTagName('label')[0];
 
+    var browser = browserDetect()
     var textDeco = getStyle(label_child, 'textDecoration');
 
-    if (textDeco == "none solid rgb(0, 0, 0)") {
-        label_child.style.textDecoration = "line-through";
-    } else if (textDeco == "line-through solid rgb(0, 0, 0)") {
-        label_child.style.textDecoration = "auto";
+    if (browser == 'safari') {
+        console.log('textDeco: ' + textDeco)
+        if (textDeco == "none") {
+            label_child.style.textDecoration = "line-through";
+        } else if (textDeco == "line-through") {
+            label_child.style.textDecoration = "none";
+        }
+    } else {
+        console.log('textDeco: ' + textDeco)
+        if (textDeco == "none solid rgb(0, 0, 0)") {
+            label_child.style.textDecoration = "line-through";
+        } else if (textDeco == "line-through solid rgb(0, 0, 0)") {
+            label_child.style.textDecoration = "none";
+        }
+
     }
+
+
+
 
 }
 
@@ -133,4 +148,28 @@ document.getElementById('titleDate').innerHTML = '<h1>To Do List - ' + month + '
 // Warning upon reload
 window.onbeforeunload = function() {
     return "Reloading this page will empty out all of your entries";
+}
+
+
+// Browser ID
+function browserDetect() {
+
+    let userAgent = navigator.userAgent;
+    let browserName;
+
+    if (userAgent.match(/chrome|chromium|crios/i)) {
+        browserName = "chrome";
+    } else if (userAgent.match(/firefox|fxios/i)) {
+        browserName = "firefox";
+    } else if (userAgent.match(/safari/i)) {
+        browserName = "safari";
+    } else if (userAgent.match(/opr\//i)) {
+        browserName = "opera";
+    } else if (userAgent.match(/edg/i)) {
+        browserName = "edge";
+    } else {
+        browserName = "No browser detection";
+    }
+
+    return browserName;
 }
